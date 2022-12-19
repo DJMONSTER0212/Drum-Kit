@@ -45,7 +45,6 @@ for(let i =0;i<document.querySelectorAll('button').length;i++){
 
 //the event parameter will let us to tap in to the event that triggered the function
 document.addEventListener('keypress',function(event){ //keyboard event listner is added in the whole document so that the whole document can hadle key press || first event is generated then the function gets triggered
-    console.log(event)
     var keypressed = event.key;
     switch (keypressed) {
         case 'w':
