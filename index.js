@@ -8,6 +8,7 @@ for(let i =0;i<document.querySelectorAll('button').length;i++){
     document.querySelectorAll('button')[i].addEventListener('click',function(){
         var buttonInnerHTML = this.innerHTML;
         makeSound(buttonInnerHTML)
+        buttonAnimation(buttonInnerHTML)
     })
     
 }
@@ -16,6 +17,7 @@ for(let i =0;i<document.querySelectorAll('button').length;i++){
 document.addEventListener('keypress',function(event){ //keyboard event listner is added in the whole document so that the whole document can hadle key press || first event is generated then the function gets triggered
     var keypressed = event.key;
     makeSound(keypressed)
+    buttonAnimation(keypressed)
 })
 function makeSound(key){
     switch (key) {
@@ -47,7 +49,16 @@ function makeSound(key){
             var audio = new Audio('sounds/snare.mp3')
             audio.play();
             break;
-        default: console.log(event.key)
+        default: console.log(key)
 
     }
+}
+
+function buttonAnimation(key){
+    var activeButton = document.querySelector('.' + key);
+    activeButton.classList.add('pressed');
+
+    setTimeout(function(){
+        activeButton.classList.remove('pressed');
+    },100)
 }
